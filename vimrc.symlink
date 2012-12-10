@@ -1,0 +1,76 @@
+filetype off                                    " required to init 
+set rtp+=~/.vim/bundle/vundle/                  " include vundle
+call vundle#rc()                                " init vundle
+
+Bundle 'gmarik/vundle'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'Townk/vim-autoclose'
+Bundle 'vim-scripts/Align'
+Bundle 'scrooloose/nerdcommenter'
+
+set t_Co=256
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set fileencoding=utf-8
+set encoding=utf-8
+set termencoding=utf-8
+set showcmd
+
+filetype plugin indent on
+syntax enable
+autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
+set laststatus=2 " Always show the statusline
+
+set backspace=indent,eol,start  " backspace through everything in insert mode
+
+"" Searching
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+
+"" Appearence
+colorscheme jellybeans
+" use comma as <Leader> key instead of backslash
+let mapleader=","
+" double percentage sign in command mode is expanded
+" to directory of current file - http://vimcasts.org/e/14
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+" Quickly edit/source .vimrc
+noremap <leader>ve :edit ~/.vimrc<CR>
+noremap <leader>vs :source ~/.vimrc<CR>
+
+" Move faster
+map <C-j> <C-d>
+map <C-k> <C-u>
+
+" Bubbling (bracket matching)
+nmap <C-up> [e
+nmap <C-down> ]e
+vmap <C-up> [egv
+vmap <C-down> ]egv
+" Double <Leader> to switch between buffers
+nnoremap <leader><leader> <c-^>
+let g:ctrlp_map = '<Leader>f'
+let g:ctrlp_custom_ignore = 'node_modules/|git'
+""" Highlight characters past 80, toggle with <leader>h {{{
+nnoremap <Leader>h :call ToggleOverLengthHighlight()<CR>
+let g:overlength_enabled = 0
+highlight OverLength ctermbg=cyan guibg=#212121
+
+function! ToggleOverLengthHighlight()
+    if g:overlength_enabled == 0
+        match OverLength /\%80v.*/
+        let g:overlength_enabled = 1
+        echo 'OverLength highlighting turned on'
+    else
+        match
+        let g:overlength_enabled = 0
+        echo 'OverLength highlighting turned off'
+    endif
+endfunction
+""" }}}
