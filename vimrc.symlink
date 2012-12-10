@@ -9,7 +9,13 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'Townk/vim-autoclose'
 Bundle 'vim-scripts/Align'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'nono/vim-handlebars'
 
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+
+Bundle "garbas/vim-snipmate"
 set t_Co=256
 set tabstop=2
 set expandtab
