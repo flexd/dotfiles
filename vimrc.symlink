@@ -16,6 +16,13 @@ Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
 
 Bundle "garbas/vim-snipmate"
+Bundle "mattn/gist-vim"
+
+"" gist-vim
+
+let g:gist_detect_filetype = 1
+let g:gist_post_private = 1
+
 
 set t_Co=256
 set tabstop=2
@@ -25,6 +32,7 @@ set fileencoding=utf-8
 set encoding=utf-8
 set termencoding=utf-8
 set showcmd
+set noshowmode "" Using vim-powerline so we do not need to see modes like INSERT/VISUAL
 
 filetype plugin indent on
 syntax enable
