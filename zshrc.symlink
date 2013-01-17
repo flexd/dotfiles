@@ -37,5 +37,5 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/home/kristoffer/bin
 export LC_ALL="en_US.UTF-8"
 stty start undef stop undef
-. ~/nvm/nvm.sh
+. ~/bin/nvm/nvm.sh
 git config --global github.user flexd
