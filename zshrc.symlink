@@ -39,3 +39,4 @@ export LC_ALL="en_US.UTF-8"
 stty start undef stop undef
 . ~/bin/nvm/nvm.sh
 git config --global github.user flexd
+alias tmux="tmux -2"
