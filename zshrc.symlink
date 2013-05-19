@@ -21,7 +21,7 @@ ZSH_THEME="steeef"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
@@ -29,7 +29,7 @@ ZSH_THEME="steeef"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git npm node redis-cli ssh-agent)
+plugins=(git npm node redis-cli ssh-agent virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -39,4 +39,11 @@ export LC_ALL="en_US.UTF-8"
 stty start undef stop undef
 . ~/bin/nvm/nvm.sh
 git config --global github.user flexd
-alias tmux="tmux -2"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/code
+source /usr/local/bin/virtualenvwrapper.sh
+alias mg=mongroup
+#alias tmux="tmux -2"
