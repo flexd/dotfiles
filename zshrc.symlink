@@ -37,13 +37,23 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/home/kristoffer/bin
 export LC_ALL="en_US.UTF-8"
 stty start undef stop undef
-. ~/bin/nvm/nvm.sh
 git config --global github.user flexd
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+
+source /etc/bash_completion.d/virtualenvwrapper
+#VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
 alias mg=mongroup
 #alias tmux="tmux -2"
+## SSH-agent
+SSHPID=`ps ax|grep -c "[s]sh-agent"`
+if (( $SSHPID == 0 ))
+then
+    ssh-agent > ~/.ssh-env
+    source ~/.ssh-env
+    ssh-add
+else
+    source ~/.ssh-env
+fi
+# powerline
