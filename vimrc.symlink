@@ -25,8 +25,25 @@ Bundle "tpope/vim-markdown"
 Bundle "Glench/Vim-Jinja2-Syntax"
 Bundle "klen/python-mode"
 Bundle "majutsushi/tagbar"
+"Bundle 'marijnh/tern_for_vim'
 "Bundle 'Valloric/YouCompleteMe'
 "" gist-vim
+
+function! SuperCleverTab()
+    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
+        return "\<Tab>"
+    else
+        if &omnifunc != ''
+            return "\<C-X>\<C-O>"
+        elseif &dictionary != ''
+            return "\<C-K>"
+        else
+            return "\<C-N>"
+        endif
+    endif
+endfunction
+
+inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
 let g:gist_detect_filetype = 1
 let g:gist_post_private = 1
