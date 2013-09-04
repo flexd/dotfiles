@@ -57,3 +57,4 @@ else
     source ~/.ssh-env
 fi
 # powerline
+[[ -s /home/kristoffer/.nvm/nvm.sh ]] && . /home/kristoffer/.nvm/nvm.sh # This loads NVM ]]

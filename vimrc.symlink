@@ -1,13 +1,16 @@
 filetype off                                    " required to init 
 set rtp+=~/.vim/bundle/vundle/                  " include vundle
-set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
 call vundle#rc()                                " init vundle
 
 Bundle 'gmarik/vundle'
+Bundle 'mhinz/vim-signify'
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
+Bundle 'Raimondi/delimitMate'
+Bundle 'mhinz/vim-startify'
+Bundle 'mbbill/undotree'
 Bundle 'kien/ctrlp.vim'
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'Townk/vim-autoclose'
 "Bundle 'vim-scripts/Align'
 Bundle 'godlygeek/tabular'
 Bundle 'scrooloose/nerdcommenter'
@@ -28,6 +31,8 @@ Bundle "majutsushi/tagbar"
 "Bundle 'marijnh/tern_for_vim'
 "Bundle 'Valloric/YouCompleteMe'
 "" gist-vim
+
+
 
 function! SuperCleverTab()
     if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
@@ -66,7 +71,6 @@ set encoding=utf-8
 set termencoding=utf-8
 set showcmd
 set noshowmode "" Using vim-powerline so we do not need to see modes like INSERT/VISUAL
-let g:Powerline_symbols = 'fancy'   " Powerline "
 
 filetype plugin indent on
 syntax enable
@@ -136,3 +140,4 @@ if ! has('gui_running')
 endif
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
+nnoremap <F5> :UndotreeToggle<cr>
