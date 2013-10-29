@@ -3,3 +3,8 @@
 [user]
 	email = github@flexd.net
 	name = Kristoffer Berdal
+[core]
+    excludesfile = ~/.gitignore
+ 
+[include]
+    path = .gitconfig.local

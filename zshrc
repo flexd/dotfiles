@@ -1,50 +1,42 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="steeef"
+# completion
+autoload -U compinit
+compinit
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+export VISUAL=vim
+export EDITOR=$VISUAL
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+setopt prompt_subst
+# prompt
+export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
+#
+# ignore duplicate history entries
+setopt histignoredups
 
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+# keep TONS of history
+export HISTSIZE=4096
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+# Try to correct command line spelling
+setopt CORRECT CORRECT_ALL
 
-# Uncomment following line if you want to disable autosetting terminal title.
-DISABLE_AUTO_TITLE="true"
+# Enable extended globbing
+setopt EXTENDED_GLOB
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+# Allow [ or ] whereever you want
+unsetopt nomatch
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git npm node redis-cli ssh-agent virtualenvwrapper)
+# aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
 
-source $ZSH/oh-my-zsh.sh
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
 
 # Customize to your needs...
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/home/kristoffer/bin
 export LC_ALL="en_US.UTF-8"
 stty start undef stop undef
-git config --global github.user flexd
 
-source /etc/bash_completion.d/virtualenvwrapper
-#VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/code
-#source /usr/local/bin/virtualenvwrapper.sh
-alias mg=mongroup
 #alias tmux="tmux -2"
 ## SSH-agent
 SSHPID=`ps ax|grep -c "[s]sh-agent"`
@@ -56,5 +48,3 @@ then
 else
     source ~/.ssh-env
 fi
-# powerline
-[[ -s /home/kristoffer/.nvm/nvm.sh ]] && . /home/kristoffer/.nvm/nvm.sh # This loads NVM ]]
