@@ -1,37 +1,7 @@
-filetype off                                    " required to init 
-set rtp+=~/.vim/bundle/vundle/                  " include vundle
-call vundle#rc()                                " init vundle
 
-Bundle 'gmarik/vundle'
-Bundle 'mhinz/vim-signify'
-Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
-Bundle 'Raimondi/delimitMate'
-Bundle 'mhinz/vim-startify'
-Bundle 'mbbill/undotree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'nanotech/jellybeans.vim'
-"Bundle 'vim-scripts/Align'
-Bundle 'godlygeek/tabular'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'nono/vim-handlebars'
-
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "honza/vim-snippets"
-
-Bundle "garbas/vim-snipmate"
-Bundle "mattn/webapi-vim"
-Bundle "mattn/gist-vim"
-Bundle "myusuf3/numbers.vim"
-Bundle "tpope/vim-markdown"
-Bundle "Glench/Vim-Jinja2-Syntax"
-Bundle "klen/python-mode"
-Bundle "majutsushi/tagbar"
-"Bundle 'marijnh/tern_for_vim'
-"Bundle 'Valloric/YouCompleteMe'
-"" gist-vim
-
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
 
 function! SuperCleverTab()
@@ -141,3 +111,8 @@ endif
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
 nnoremap <F5> :UndotreeToggle<cr>
+
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
