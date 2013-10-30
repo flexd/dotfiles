@@ -105,6 +105,3 @@ add-zsh-hook precmd hooked_precmd
 
 # prompt
 export PS1='$(virtualenv_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] $vcs_info_msg_0_ '
-
-# load scripts from .bin
-export PATH="$HOME/.bin:$PATH"

@@ -33,7 +33,6 @@ unsetopt nomatch
 
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/home/kristoffer/bin
 export LC_ALL="en_US.UTF-8"
 stty start undef stop undef
 
