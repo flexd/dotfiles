@@ -6,3 +6,7 @@ eval "$(pyenv init -)"
 
 # load scripts from .bin
 export PATH="$HOME/.bin:$PATH"
+
+if [ -f $HOME/.zsh/plugins/pyenv-virtualenv.zsh ]; then
+    source $HOME/.zsh/plugins/pyenv-virtualenv.zsh
+fi

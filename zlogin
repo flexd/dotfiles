@@ -6,7 +6,7 @@ git_prompt_info() {
   fi
 }
 function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+    [ $PYENV_VERSION ] && echo '('`basename $PYENV_VERSION`') '
 }
 
 PR_GIT_UPDATE=1
