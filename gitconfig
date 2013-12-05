@@ -6,7 +6,8 @@
 [core]
     excludesfile = ~/.gitignore
     editor = vim
- 
+[credentials]
+    helper = cache --timeout=3600 
 [include]
     path = .gitconfig.local
 
