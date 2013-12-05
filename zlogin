@@ -104,4 +104,4 @@ function hooked_precmd {
 add-zsh-hook precmd hooked_precmd
 
 # prompt
-export PS1='$(virtualenv_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] $vcs_info_msg_0_ '
+export PS1='[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] $vcs_info_msg_0_ '

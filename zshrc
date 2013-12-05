@@ -49,3 +49,6 @@ then
 else
     source ~/.ssh-env
 fi
+
+# source virtualenvwrapper
+source /usr/local/bin/virtualenvwrapper.sh
