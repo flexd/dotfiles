@@ -25,6 +25,8 @@ setopt EXTENDED_GLOB
 # Allow [ or ] whereever you want
 unsetopt nomatch
 
+setopt APPEND_HISTORY
+
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
