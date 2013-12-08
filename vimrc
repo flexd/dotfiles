@@ -79,6 +79,9 @@ vmap <C-up> [egv
 vmap <C-down> ]egv
 " Double <Leader> to switch between buffers
 nnoremap <leader><leader> <c-^>
+" Tell vim-bufferline to only show in statusline
+let g:bufferline_echo = 0
+
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :PyLintAuto<CR>
 let g:ctrlp_map = '<Leader>f'
