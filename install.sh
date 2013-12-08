@@ -15,6 +15,8 @@ for name in *; do
 done
 
 # Install vundle
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim -u ~/.vimrc.bundles +BundleInstall +qa
+if [ ! -e ~/.vim/bundle/vundle ]; then
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    vim -u ~/.vimrc.bundles +BundleInstall +qa
+fi
 
