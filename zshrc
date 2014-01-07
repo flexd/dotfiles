@@ -12,9 +12,14 @@ export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
 #
 # ignore duplicate history entries
 setopt histignoredups
+setopt APPEND_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt EXTENDED_HISTORY
 
 # keep TONS of history
-export HISTSIZE=4096
+HISTSIZE=4096
+SAVEHIST=4096
+HISTFILE=~/.zsh_history
 
 # Try to correct command line spelling
 setopt CORRECT CORRECT_ALL
@@ -25,7 +30,29 @@ setopt EXTENDED_GLOB
 # Allow [ or ] whereever you want
 unsetopt nomatch
 
-setopt sharehistory 
+bindkey -v
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[4~" end-of-line
+bindkey "\e[5~" beginning-of-history
+bindkey "\e[6~" end-of-history
+bindkey "\e[3~" delete-char
+bindkey "\e[2~" quoted-insert
+bindkey "\e[5C" forward-word
+bindkey "\eOc" emacs-forward-word
+bindkey "\e[5D" backward-word
+bindkey "\eOd" emacs-backward-word
+bindkey "\e\e[C" forward-word
+bindkey "\e\e[D" backward-word
+bindkey "^H" backward-delete-word
+bindkey "\e[8~" end-of-line
+bindkey "\e[7~" beginning-of-line
+bindkey "\eOH" beginning-of-line
+bindkey "\eOF" end-of-line
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
+bindkey '^i' expand-or-complete-prefix
+bindkey '^R' history-incremental-search-backward
+
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
