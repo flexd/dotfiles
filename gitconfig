@@ -40,3 +40,5 @@
 
     # diff with vim
     d = difftool
+[credential]
+	helper = cache
