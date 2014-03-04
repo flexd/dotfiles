@@ -111,9 +111,9 @@ if ! has('gui_running')
         au InsertLeave * set timeoutlen=1000
     augroup END
 endif
+noremap <F2> :Autoformat<CR><CR>
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
-nnoremap <F5> :UndotreeToggle<cr>
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
