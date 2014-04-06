@@ -24,6 +24,7 @@ Bundle "klen/python-mode"
 Bundle "Chiel92/vim-autoformat"
 Bundle "bronson/vim-trailing-whitespace"
 Bundle "lepture/vim-jinja"
+Bundle "sirver/UltiSnips"
 
 let g:pymode_rope = 0 " Stupid rope project init hotkey
 if filereadable(expand("~/.vimrc.bundles.local"))
