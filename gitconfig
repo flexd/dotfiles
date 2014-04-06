@@ -40,5 +40,6 @@
 
     # diff with vim
     d = difftool
+	up = "!git remote update -p; git merge --ff-only @{u}"
 [credential]
 	helper = cache
