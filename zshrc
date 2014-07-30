@@ -112,4 +112,3 @@ function venv_cd {
 }
 
 alias cd="venv_cd"
-stty start undef stop undef

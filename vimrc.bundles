@@ -1,34 +1,37 @@
 set nocompatible
+filetype off                                    " required to init
 
-filetype off                                    " required to init 
-set rtp+=~/.vim/bundle/vundle/                  " include vundle
-call vundle#rc()                                " init vundle
+set rtp+=~/.vim/bundle/vundle        " include vundle
+call vundle#begin()                                " init vundle
 
-Bundle 'gmarik/vundle'
-Bundle 'mhinz/vim-signify'
-Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
-Bundle 'Raimondi/delimitMate'
-Bundle 'mhinz/vim-startify'
-Bundle 'kien/ctrlp.vim'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'nono/vim-handlebars'
-
-Bundle "mattn/webapi-vim"
-Bundle "mattn/gist-vim"
-Bundle "myusuf3/numbers.vim"
-Bundle "tpope/vim-markdown"
-Bundle "klen/python-mode"
-Bundle "Chiel92/vim-autoformat"
-Bundle "bronson/vim-trailing-whitespace"
-Bundle "lepture/vim-jinja"
-Bundle "sirver/UltiSnips"
+Plugin 'gmarik/vundle'
+Plugin 'mhinz/vim-signify'
+Plugin 'bling/vim-airline'
+Plugin 'bling/vim-bufferline'
+Plugin 'Raimondi/delimitMate'
+Plugin 'mhinz/vim-startify'
+Plugin 'kien/ctrlp.vim'
+"Plugin 'nanotech/jellybeans.vim'
+Plugin 'Keithbsmiley/parsec.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'nono/vim-handlebars'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'klen/python-mode'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'lepture/vim-jinja'
+Plugin 'sirver/UltiSnips'
+let g:UltiSnipsExpandTrigger="<C-y>"
+Plugin 'Valloric/YouCompleteMe'
 
 let g:pymode_rope = 0 " Stupid rope project init hotkey
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
 
-filetype on
+call vundle#end()
+filetype plugin indent on

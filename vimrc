@@ -30,6 +30,7 @@ let g:gist_post_private = 1
 :iabbrev ppython #!/usr/bin/env python <cr>#-*- coding: utf-8 -*-
 
 let g:pymode_folding = 0
+let g:pymode_lint_ignore = "E501,E261"
 set colorcolumn=81                           " line to show 81 character mark
 set nocompatible
 set t_Co=256
@@ -41,6 +42,7 @@ set encoding=utf-8
 set termencoding=utf-8
 set showcmd
 set noshowmode "" Using vim-powerline so we do not need to see modes like INSERT/VISUAL
+set number "" This is important to keep numbers.vim and other things from breaking!
 
 filetype plugin indent on
 syntax enable
@@ -56,7 +58,8 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
 "" Appearence
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme parsec
 "" Mappings
 " use comma as <Leader> key instead of backslash
 let mapleader=","
@@ -67,6 +70,12 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " Quickly edit/source .vimrc
 noremap <leader>ve :edit ~/.vimrc<CR>
 noremap <leader>vs :source ~/.vimrc<CR>
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
 
 " Move faster
 map <C-j> <C-d>
