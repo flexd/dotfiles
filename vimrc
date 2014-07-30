@@ -25,7 +25,7 @@ let g:gist_post_private = 1
 
 "Abbreviations
 :iabbrev @@     web@flexd.net
-:iabbrev ccopy  Copyright 2013 Kristoffer Berdal, all rights reserved.
+:iabbrev ccopy  Copyright 2014 Kristoffer Berdal, all rights reserved.
 :iabbrev pdb    # XXX BREAKPOINT XXX <cr>import pdb; pdb.set_trace()
 :iabbrev ppython #!/usr/bin/env python <cr>#-*- coding: utf-8 -*-
 
@@ -128,3 +128,4 @@ nnoremap <F4> :NumbersOnOff<CR>
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+set background=dark

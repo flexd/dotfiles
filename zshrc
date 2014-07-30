@@ -76,7 +76,7 @@ else
 fi
 
 # source virtualenvwrapper
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
 
 # http://hmarr.com/2010/jan/19/making-virtualenv-play-nice-with-git/
 # Automatically activate Git projects' virtual environments based on the
