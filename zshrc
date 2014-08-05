@@ -64,17 +64,8 @@ bindkey '^R' history-incremental-search-backward
 export LC_ALL="en_US.UTF-8"
 
 #alias tmux="tmux -2"
-## SSH-agent
-SSHPID=`ps ax|grep -c "[s]sh-agent"`
-if (( $SSHPID == 0 ))
-then
-    ssh-agent > ~/.ssh-env
-    source ~/.ssh-env
-    ssh-add
-else
-    source ~/.ssh-env
-fi
-
+## keychain
+keychain
 # source virtualenvwrapper
 #source /usr/local/bin/virtualenvwrapper.sh
 
