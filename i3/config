@@ -124,7 +124,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym Control+mod1+l exec "~/bin/fuzzy_lock.sh"
-exec xautolock -time 5 -locker "~/bin/fuzzy_lock.sh"
+exec xautolock -time 15 -locker "~/bin/fuzzy_lock.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -159,6 +159,10 @@ bar {
 }
 
 assign [class="Chromium"] "2: www"
+assign [class="Spotify"] 3 
 exec chromium
 exec --no-startup-id nm-applet
-exec --no-startup-id i3-msg "workspace 1:terms"
+exec --no-startup-id i3-msg "workspace 1: terms"
+exec --no-startup-id i3-msg "workspace 2: www"
+exec --no-startup-id i3-msg "workspace 3: misc"
+exec --no-startup-id /usr/bin/xrdb -merge ~/.Xdefaults

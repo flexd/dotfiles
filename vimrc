@@ -58,8 +58,7 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
 "" Appearence
-"colorscheme jellybeans
-colorscheme parsec
+colorscheme solarized
 "" Mappings
 " use comma as <Leader> key instead of backslash
 let mapleader=","
