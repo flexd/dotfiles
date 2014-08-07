@@ -1,0 +1,5 @@
+!keycode 108 = Alt_R
+!keysym Alt_R = Mode_switch
+keycode 32 = o O oslash Oslash
+keycode 38 = a A aring Aring
+keycode 48 = apostrophe quotedbl ae AE
