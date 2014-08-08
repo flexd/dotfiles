@@ -46,6 +46,7 @@ set number "" This is important to keep numbers.vim and other things from breaki
 
 filetype plugin indent on
 syntax enable
+set background=dark
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 set laststatus=2 " Always show the statusline
 
@@ -127,4 +128,3 @@ nnoremap <F4> :NumbersOnOff<CR>
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
-set background=dark

@@ -161,8 +161,9 @@ bar {
 assign [class="Chromium"] "2: www"
 assign [class="Spotify"] 3 
 exec chromium
-exec --no-startup-id nm-applet
+exec nm-applet
 exec --no-startup-id i3-msg "workspace 1: terms"
 exec --no-startup-id i3-msg "workspace 2: www"
 exec --no-startup-id i3-msg "workspace 3: misc"
 exec --no-startup-id /usr/bin/xrdb -merge ~/.Xdefaults
+exec --no-startup-id /usr/bin/xmodmap ~/.Xmodmap
