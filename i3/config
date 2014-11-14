@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-
+bindsym $mod+x move workspace to output right
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -25,6 +25,19 @@ font pango:DejaVu Sans Mono 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# new window default border
+new_window 1pixel
+new_float 1pixel
+
+# volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% && killall -USR1 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% && killall -USR1 i3blocks
+
+#CHANGING BORDER STYLE
+bindsym $mod+t border normal
+bindsym $mod+y border 1pixel
+bindsym $mod+u border none
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -92,7 +105,17 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+#workspace "1:main"
+#workspace "2:www"
+#workspace "3:misc"
+# take screenshot
+# bindsym Print exec scrot '%Y-%m-%d-%t_$wx$h.png' -e 'mv $ $f ~/images/'
+bindsym F11 exec scrot '%Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots'
 
+bindsym $mod+F12 exec scrot -s '%Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots'
+bindsym Print exec scrot '%Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots'
+
+bindsym $mod+Print exec scrot -s '%Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots'
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -124,7 +147,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym Control+mod1+l exec "~/bin/fuzzy_lock.sh"
-exec xautolock -time 15 -locker "~/bin/fuzzy_lock.sh"
+#exec xautolock -time 15 -locker "~/bin/fuzzy_lock.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -155,15 +178,13 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3blocks
 }
 
-assign [class="Chromium"] "2: www"
-assign [class="Spotify"] 3 
-exec chromium
+assign [class="Google-chrome-stable"] 2
+assign [class="Spotify"] 8
+exec google-chrome-stable
 exec nm-applet
-exec --no-startup-id i3-msg "workspace 1: terms"
-exec --no-startup-id i3-msg "workspace 2: www"
-exec --no-startup-id i3-msg "workspace 3: misc"
 exec --no-startup-id /usr/bin/xrdb -merge ~/.Xdefaults
 exec --no-startup-id /usr/bin/xmodmap ~/.Xmodmap
+exec --no-startup-id xfce4-volumed

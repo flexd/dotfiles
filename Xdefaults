@@ -10,8 +10,8 @@ URxvt.visualBell: true
 URxvt.urgentOnBell: true
 URxvt.geometry: 80x30
 
-!URxvt.font: xft:DejaVu Sans Mono:size=12
-URxvt.font: xft:terminus:style=regular:pixelsize=18
+URxvt.font: xft:DejaVu Sans Mono:size=12:antialias=true,xft:PowerlineSymbols:pixelsize=11:antialias=true
+!URxvt.font: xft:terminus:style=regular:pixelsize=9,xft:PowerlineSymbols:pixelsize=11:antialias=true
 
 ! Clipboard
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
@@ -19,3 +19,10 @@ URxvt.iso14755: False
 URxvt.perl-ext-common: default,clipboard
 
 #include ".urxvt/themes/solarized"
+
+! Clickable links
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/google-chrome
+URxvt.matcher.button: 1
+! Colors!
+URxvt.colorUL: #4682B4
