@@ -103,5 +103,22 @@ function hooked_precmd {
 }
 add-zsh-hook precmd hooked_precmd
 
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX="("
+ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=")"
+
+function virtualenv_prompt_info() {
+    if [ -n "$VIRTUAL_ENV" ]; then
+        if [ -f "$VIRTUAL_ENV/__name__" ]; then
+            local name=$(basename $(dirname $VIRTUAL_ENV))/$(cat $VIRTUAL_ENV/__name__)
+        elif [ `basename $VIRTUAL_ENV` = "__" ]; then
+            local name=$(basename $(dirname $VIRTUAL_ENV))/$(basename $(dirname $VIRTUAL_ENV))
+        else
+            local name=$(basename $(dirname $VIRTUAL_ENV))/$(basename $VIRTUAL_ENV)
+        fi
+        echo "$ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX$name$ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX"
+    fi
+}
 # prompt
-export PS1='[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] $vcs_info_msg_0_ '
+export PROMPT='[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] $vcs_info_msg_0_ '
+export RPROMPT='$(virtualenv_prompt_info)'

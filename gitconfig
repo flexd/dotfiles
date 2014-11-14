@@ -1,8 +1,9 @@
 [github]
 	user = flexd
 [user]
-	email = github@flexd.net
+	email = web@flexd.net
 	name = Kristoffer Berdal
+	signignkey = DA233215
 [core]
     excludesfile = ~/.gitignore
     editor = vim

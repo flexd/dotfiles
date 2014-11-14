@@ -81,13 +81,10 @@ function workon_cwd {
         GIT_DIR=`\cd $GIT_DIR; pwd`
         PROJECT_ROOT=`dirname "$GIT_DIR"`
         ENV_NAME=`basename "$PROJECT_ROOT"`
-        if [ -f "$PROJECT_ROOT/.venv" ]; then
-            ENV_NAME=`cat "$PROJECT_ROOT/.venv"`
-        fi
         # Activate the environment only if it is not already active
-        if [ "$VIRTUAL_ENV" != "$WORKON_HOME/$ENV_NAME" ]; then
-            if [ -e "$WORKON_HOME/$ENV_NAME/bin/activate" ]; then
-                workon "$ENV_NAME" && export CD_VIRTUAL_ENV="$ENV_NAME"
+        if [ "$VIRTUAL_ENV" != "$PROJECT_ROOT/venv" ]; then
+            if [ -e "$PROJECT_ROOT/venv/bin/activate" ]; then
+                source "$PROJECT_ROOT/venv/bin/activate" && export CD_VIRTUAL_ENV="$ENV_NAME"
             fi
         fi
     elif [ $CD_VIRTUAL_ENV ]; then
