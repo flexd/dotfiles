@@ -1,6 +1,11 @@
 # load scripts from .bin
 export PATH="$HOME/.bin:$PATH"
 
+# setup go
+export GOPATH=$HOME/code/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
+
 # virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
 

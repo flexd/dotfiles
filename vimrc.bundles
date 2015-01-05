@@ -12,7 +12,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'mhinz/vim-startify'
 Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'nono/vim-handlebars'
@@ -25,8 +24,11 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'lepture/vim-jinja'
 Plugin 'sirver/UltiSnips'
+Plugin 'honza/vim-snippets'
+Plugin 'majutsushi/tagbar'
 let g:UltiSnipsExpandTrigger="<C-y>"
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'
 
 let g:pymode_rope = 0 " Stupid rope project init hotkey
 if filereadable(expand("~/.vimrc.bundles.local"))

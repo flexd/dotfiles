@@ -60,6 +60,11 @@ set smartcase                   " ... unless they contain at least one capital l
 
 "" Appearence
 colorscheme solarized
+"colorscheme noctu
+"colorscheme gruvbox
+"if !has("gui_running")
+   "let g:gruvbox_italic=0
+"endif
 "" Mappings
 " use comma as <Leader> key instead of backslash
 let mapleader=","
@@ -128,3 +133,24 @@ nnoremap <F4> :NumbersOnOff<CR>
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+let g:go_fmt_command = "goimports"
+" Autocompletion
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" Disable tab for YCM (because ultisnip uses it)
+"let g:ycm_key_list_select_completion=[]
+"let g:ycm_key_list_previous_completion=[]
+
+" Ultisnips key
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_structs = 1
