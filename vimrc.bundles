@@ -1,7 +1,7 @@
 set nocompatible
 filetype off                                    " required to init
 
-set rtp+=~/.vim/bundle/vundle        " include vundle
+set rtp+=~/.vim/bundle/Vundle.vim        " include vundle
 call vundle#begin()                                " init vundle
 
 Plugin 'gmarik/vundle'
@@ -27,6 +27,9 @@ Plugin 'lepture/vim-jinja'
 Plugin 'sirver/UltiSnips'
 let g:UltiSnipsExpandTrigger="<C-y>"
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 let g:pymode_rope = 0 " Stupid rope project init hotkey
 if filereadable(expand("~/.vimrc.bundles.local"))

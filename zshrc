@@ -105,3 +105,6 @@ xset r rate 200 50
 
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+
+PERL_MB_OPT="--install_base \"/home/kristoffer/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/kristoffer/perl5"; export PERL_MM_OPT;
