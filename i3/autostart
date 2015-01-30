@@ -1,0 +1,14 @@
+#!/bin/sh
+## Set wallpaper
+feh --bg-max --randomize ~/.wallpapers/* &
+## Disable beeps
+xset -b &
+
+## DPMS monitor setting (standby -> suspend -> off) (seconds)
+xset dpms 300 600 900 &
+
+## Clipboard manager
+parcellite &
+
+## OSD
+#dunst &

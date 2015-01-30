@@ -10,7 +10,7 @@ URxvt.visualBell: true
 URxvt.urgentOnBell: true
 URxvt.geometry: 80x30
 
-URxvt.font: xft:DejaVu Sans Mono:size=12:antialias=true,xft:PowerlineSymbols:pixelsize=11:antialias=true
+URxvt.font: xft:DejaVu Sans Mono:size=10:antialias=true,xft:PowerlineSymbols:pixelsize=10:antialias=true
 !URxvt.font: xft:terminus:style=regular:pixelsize=9,xft:PowerlineSymbols:pixelsize=11:antialias=true
 
 ! Clipboard
@@ -26,3 +26,6 @@ URxvt.url-launcher: /usr/bin/google-chrome
 URxvt.matcher.button: 1
 ! Colors!
 URxvt.colorUL: #4682B4
+!! Colors
+!#include </home/kristoffer/colors/blushsh>
+#include </home/kristoffer/colors/gruvbox>
