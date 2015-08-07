@@ -217,16 +217,16 @@ bindsym $mod+o scratchpad show
 # Custom window settings
 for_window [class="^URxvt$" instance="scratchpad"] border 1pixel; move scratchpad
 for_window [class="^Google-chrome$"] border none
-assign [class="Google-chrome-stable"] 2
+assign [class="Google-chrome-unstable"] 2
 assign [class="Spotify"] 8
 exec /usr/bin/xmodmap ~/.Xmodmap
-exec /usr/bin/xrdb -merge ~/.Xdefaults
+exec /usr/bin/xrdb -merge ~/.Xresources
 # before autostart
-exec urxvt -name scratchpad -e /bin/zsh
+exec xterm -name scratchpad -e /bin/zsh
 exec ~/.i3/autostart
 # autostart
 exec --no-startup-id /usr/bin/gnome-settings-daemon
 exec --no-startup-id nm-applet
 #exec --no-startup-id blueman-applet
 exec --no-startup-id export $(gnome-keyring-daemon)
-exec google-chrome-stable
+exec google-chrome-unstable
