@@ -1,39 +1,63 @@
 set nocompatible
 filetype off                                    " required to init
 
-set rtp+=~/.vim/bundle/vundle        " include vundle
-call vundle#begin()                                " init vundle
+set runtimepath+=~/.vim/bundle/neobundle.vim/        " include neobundle
+call neobundle#begin(expand('~/.vim/bundle/'))                                " init neobundle
 
-Plugin 'gmarik/vundle'
-Plugin 'mhinz/vim-signify'
-Plugin 'bling/vim-airline'
-Plugin 'bling/vim-bufferline'
-Plugin 'Raimondi/delimitMate'
-Plugin 'mhinz/vim-startify'
-Plugin 'kien/ctrlp.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'godlygeek/tabular'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'nono/vim-handlebars'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'tpope/vim-markdown'
-Plugin 'klen/python-mode'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'lepture/vim-jinja'
-Plugin 'sirver/UltiSnips'
-Plugin 'honza/vim-snippets'
-Plugin 'majutsushi/tagbar'
-let g:UltiSnipsExpandTrigger="<C-y>"
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'fatih/vim-go'
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'bling/vim-bufferline'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'nono/vim-handlebars'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'klen/python-mode'
+NeoBundle 'Chiel92/vim-autoformat'
+NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'lepture/vim-jinja'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
+NeoBundle 'benekastah/neomake'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'morhetz/gruvbox'
+
+let g:neobundle#install_process_timeout = 1500
 
 let g:pymode_rope = 0 " Stupid rope project init hotkey
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
 
-call vundle#end()
+call neobundle#end()
+
 filetype plugin indent on
+NeoBundleCheck
+" NeoMake on save
+autocmd! BufWritePost * Neomake
+
+" Neosnippet
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif

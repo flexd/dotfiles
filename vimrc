@@ -25,7 +25,7 @@ let g:gist_post_private = 1
 
 "Abbreviations
 :iabbrev @@     web@flexd.net
-:iabbrev ccopy  Copyright 2014 Kristoffer Berdal, all rights reserved.
+:iabbrev ccopy  Copyright 2015 Kristoffer Berdal, all rights reserved.
 :iabbrev pdb    # XXX BREAKPOINT XXX <cr>import pdb; pdb.set_trace()
 :iabbrev ppython #!/usr/bin/env python <cr>#-*- coding: utf-8 -*-
 
@@ -59,12 +59,12 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
 "" Appearence
-colorscheme solarized
+"colorscheme solarized
 "colorscheme noctu
-"colorscheme gruvbox
-"if !has("gui_running")
-   "let g:gruvbox_italic=0
-"endif
+colorscheme gruvbox
+if !has("gui_running")
+   let g:gruvbox_italic=0
+endif
 "" Mappings
 " use comma as <Leader> key instead of backslash
 let mapleader=","
