@@ -156,7 +156,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym Control+mod1+l exec i3-msg workspace 9 && exec i3exit lock
+bindsym Control+mod1+l exec xscreensaver-command -lock
 #exec xautolock -time 15 -locker "~/bin/fuzzy_lock.sh"
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
