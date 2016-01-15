@@ -96,10 +96,7 @@ nnoremap <leader><leader> <c-^>
 " Tell vim-bufferline to only show in statusline
 let g:bufferline_echo = 0
 
-nmap <F8> :TagbarToggle<CR>
-nmap <F7> :PyLintAuto<CR>
 let g:ctrlp_map = '<Leader>f'
-let g:ctrlp_custom_ignore = 'node_modules/|git'
 """ Highlight characters past 80, toggle with <leader>h {{{
 nnoremap <Leader>h :call ToggleOverLengthHighlight()<CR>
 let g:overlength_enabled = 0
@@ -125,31 +122,11 @@ if ! has('gui_running')
         au InsertLeave * set timeoutlen=1000
     augroup END
 endif
-noremap <F2> :Autoformat<CR><CR>
-nnoremap <F3> :NumbersToggle<CR>
-nnoremap <F4> :NumbersOnOff<CR>
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
-let g:go_fmt_command = "goimports"
-" Autocompletion
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-" Disable tab for YCM (because ultisnip uses it)
-"let g:ycm_key_list_select_completion=[]
-"let g:ycm_key_list_previous_completion=[]
-
-" Ultisnips key
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1

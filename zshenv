@@ -7,7 +7,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
 
 # virtualenvwrapper
-export WORKON_HOME=~/.virtualenvs
+#export WORKON_HOME=~/.virtualenvs
 
 # Disable Software Flow Control (Ctrl-S and Ctrl-Q)
-stty start undef stop undef
+#stty start undef stop undef

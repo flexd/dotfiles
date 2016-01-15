@@ -8,8 +8,12 @@ call neobundle#begin(expand('~/.vim/bundle/'))                                " 
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'bling/vim-bufferline'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -21,15 +25,19 @@ NeoBundle 'klen/python-mode'
 NeoBundle 'Chiel92/vim-autoformat'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'lepture/vim-jinja'
+NeoBundle 'nsf/gocode', {'rtp': 'vim/'}
 NeoBundle 'fatih/vim-go'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'benekastah/neomake'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'docker/docker' , {'rtp': '/contrib/syntax/vim'}
 NeoBundle 'morhetz/gruvbox'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'wookiehangover/jshint.vim'
+NeoBundle 'mxw/vim-jsx'
 
 let g:neobundle#install_process_timeout = 1500
+let g:neocomplete#enable_at_startup = 1
 
 let g:pymode_rope = 0 " Stupid rope project init hotkey
 if filereadable(expand("~/.vimrc.bundles.local"))
@@ -41,7 +49,45 @@ call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
 " NeoMake on save
-autocmd! BufWritePost * Neomake
+"autocmd! BufWritePost * Neomake
+
+" Write as sudo
+cmap w!! w !sudo tee > /dev/null %
+
+" Airline
+let g:airline#extensions#whitespace#checks=[]
+let g:airline#extensions#tagbar#enabled = 1
+
+" Tagbar
+map <F2> :TagbarToggle<CR>
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 " Neosnippet
 " Plugin key-mappings.
@@ -61,3 +107,22 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+" Go
+if exists("g:did_load_filetypes")
+  filetype off
+  filetype plugin indent off
+endif
+filetype plugin indent on
+syntax on
+" goimports
+let g:go_fmt_command = "goimports"
+" snippet plugin
+let g:go_snippet_engine = "neosnippet"
+" Go html/template
+au BufNewFile,BufRead *.tmpl set filetype=html
+" ESLint (JavaScript)
+let g:syntastic_javascript_checkers = ['eslint']
+let g:ctrlp_custom_ignore = {
+   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
+   \ }
