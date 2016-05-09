@@ -15,8 +15,9 @@ for name in *; do
 done
 
 # Install vundle
-if [ ! -e ~/.vim/bundle/vundle ]; then
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-    vim -u ~/.vimrc.bundles +BundleInstall +qa
+if [ ! -e ~/.vim/bundle/neobundle.vim ]; then
+    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > /tmp/install.sh
+    sh /tmp/install.sh
+    vim -u ~/.vimrc.bundles +NeoBundleInstall +qa
 fi
 
