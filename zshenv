@@ -12,8 +12,4 @@ export WORKON_HOME=~/.virtualenvs
 # Disable Software Flow Control (Ctrl-S and Ctrl-Q)
 stty start undef stop undef
 
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-        export TERM='xterm-256color'
-else
-        export TERM='xterm-color'
-fi
+export TERM='xterm-256color'
