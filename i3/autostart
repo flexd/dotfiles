@@ -1,6 +1,6 @@
 #!/bin/sh
 ## Set wallpaper
-feh --bg-max --randomize ~/.wallpapers/* &
+feh --bg-max --randomize ~/Pictures/wallpapers/* &
 ## Disable beeps
 xset -b &
 

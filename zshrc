@@ -1,6 +1,7 @@
 
 # completion
 autoload -U compinit
+autoload run-help
 compinit
 
 export VISUAL=vim
@@ -52,6 +53,7 @@ bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 bindkey '^i' expand-or-complete-prefix
 bindkey '^R' history-incremental-search-backward
+bindkey '^@' push-line # ctrl-space
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
@@ -108,3 +110,20 @@ alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.
 
 PERL_MB_OPT="--install_base \"/home/kristoffer/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/kristoffer/perl5"; export PERL_MM_OPT;
+
+case $TERM in
+  (*xterm* | rxvt)
+
+    # Write some info to terminal title.
+    # This is seen when the shell prompts for input.
+    function precmd {
+      print -Pn "\e]0;zsh%L %(1j,%j job%(2j|s|); ,)%~\a"
+    }
+    # Write command and args to terminal title.
+    # This is seen while the shell waits for a command to complete.
+    function preexec {
+      printf "\033]0;%s\a" "$1"
+    }
+
+  ;;
+esac
